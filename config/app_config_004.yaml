@@ -1,0 +1,105 @@
+# Application Configuration File 4
+
+# Database Configuration
+database:
+  host: db-4.example.com
+  port: 5432
+  name: app_db_4
+  username: app_user_4
+  password: ${DB_PASSWORD}
+  ssl_mode: require
+  max_connections: 100
+  connection_timeout: 30
+  pool_size: 20
+
+# Redis Configuration
+redis:
+  host: redis-4.example.com
+  port: 6379
+  password: ${REDIS_PASSWORD}
+  database: 0
+  max_connections: 50
+  connection_timeout: 10
+
+# Application Settings
+app:
+  name: "Test Application 4"
+  version: "1.4.0"
+  environment: production
+  debug: false
+  log_level: info
+  port: 8084
+  host: 0.0.0.0
+
+# Security Configuration
+security:
+  jwt_secret: ${JWT_SECRET}
+  jwt_expiration: 3600
+  refresh_token_expiration: 604800
+  bcrypt_rounds: 12
+  cors_origins:
+    - https://app4.example.com
+    - https://admin4.example.com
+  rate_limit:
+    window_ms: 900000
+    max_requests: 1000
+
+# Email Configuration
+email:
+  provider: sendgrid
+  api_key: ${SENDGRID_API_KEY}
+  from_address: noreply@example4.com
+  templates:
+    welcome: welcome_template_4
+    password_reset: password_reset_template_4
+    verification: verification_template_4
+
+# File Storage
+storage:
+  provider: aws_s3
+  bucket: app-files-4
+  region: us-east-1
+  access_key: ${AWS_ACCESS_KEY}
+  secret_key: ${AWS_SECRET_KEY}
+  max_file_size: 10485760
+  allowed_types:
+    - image/jpeg
+    - image/png
+    - application/pdf
+    - text/plain
+
+# Monitoring
+monitoring:
+  provider: datadog
+  api_key: ${DATADOG_API_KEY}
+  app_key: ${DATADOG_APP_KEY}
+  metrics:
+    enabled: true
+    interval: 60
+  logging:
+    level: info
+    format: json
+    output: stdout
+
+# Feature Flags
+features:
+  new_ui: true
+  advanced_analytics: false
+  beta_features: true
+  maintenance_mode: false
+  user_registration: true
+  social_login: true
+
+# API Configuration
+api:
+  version: v4
+  base_url: https://api4.example.com
+  rate_limit: 1000
+  timeout: 30
+  pagination:
+    default_limit: 20
+    max_limit: 100
+  documentation:
+    enabled: true
+    path: /docs
+    title: "API Documentation 4"
